@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+
+<html lang="en" dir="ltr">
+    <head>
+            <meta charset="utf-8">
+            <title>َYoutube Video Downloader</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename='mainstyle.css') }}">
+    </head>
+
+    <body>
+        <form class="box" action="{{ url_for('video_view') }}" method="POST">
+        <h1>Select Your Resolution</h1> <br>
+        <img src={{thumb}} width="200" height="140">
+        <h2 style="color: yellow">{{ title }}</h2> <br>
+        <select style="width:150px" name='res' id='res'>
+            {% for i in mp4files %}
+                <option value="{{i.itag}}">{{i.resolution}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Download">
+        </form>
+    </body>
+</html>
